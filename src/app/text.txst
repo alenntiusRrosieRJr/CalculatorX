@@ -1,0 +1,132 @@
+      <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 3)
+            }}>3</button>
+            <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 4)
+            }}>4</button>
+            <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 5)
+            }}>5</button>
+            <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 6)
+            }}>6</button>
+            <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 7)
+            }}>7</button>
+            <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 8)
+            }}>8</button>
+            <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 9)
+            }}>9</button>
+            <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                setNumber(Number + 0)
+            }}>0</button>
+
+
+
+            export default function App() {
+              const [input, setInput] = useState(''); // Input string for calculations
+              const [result, setResult] = useState('');
+
+              // Function to update the input string when a button is clicked
+              const handleButtonClick = (value) => {
+                if (value === '=') {
+                  // Evaluate the input string and update the result
+                  try {
+                    setResult(eval(input).toString());
+                  } catch (error) {
+                    setResult('Error'); // Handle invalid expressions
+                  }
+                } else if (value === 'C') {
+                  // Clear the input string and result
+                  setInput('');
+                  setResult('');
+                } else {
+                  // Append the clicked value to the input string
+                  setInput(input + value);
+                }
+              };
+
+              return (
+                <div className="bg-red-400 h-screen w-screen m-0 p-10">
+                  <p className="text-8xl text-white font-bold">{result}</p>
+
+                  <div className="h-96 w-80">
+                    {/* Buttons for numbers and operations */}
+                    <button
+                      className="border-2 border-black w-20 h-20 rounded-1xl"
+                      onClick={() => handleButtonClick(1)}
+                    >
+                      1
+                    </button>
+                    <button
+                      className="border-2 border-black w-20 h-20 rounded-1xl"
+                      onClick={() => handleButtonClick(2)}
+                    >
+                      2
+                    </button>
+                    <button
+                      className="border-2 border-black w-20 h-20 rounded-1xl"
+                      onClick={() => handleButtonClick('C')}
+                    >
+                      C
+                    </button>
+                    <button
+                      className="border-2 border-black w-20 h-20 rounded-1xl"
+                      onClick={() => handleButtonClick('=')}
+                    >
+                      =
+                    </button>
+                    <button
+                      className="border-2 border-black w-20 h-20 rounded-1xl"
+                      onClick={() => handleButtonClick('+')}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              );
+            }
+            -----------------------
+            export default function App() {
+                const [Number, setNumber] = useState(1);
+                const [result, setResult] = useState("")
+
+
+                let onChange1 = (event) => {
+                    const NewValue = event.target.value;
+                    setLog(NewValue)
+                };
+
+                function resulst(){
+                    log(SetLog(onChange1()))
+                    SetResult(log)
+                }
+
+              return (
+                <div className="bg-red-400 h-screen w-screen m-0 p-10">
+                    <p className={'text-8xl text-white font-bold'}>
+                        {result}
+                    </p>
+
+                    <div className={'h-96 w-80'}>
+                        <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                            setResult(1)
+                        }}>1</button>
+                        <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                            setResult(2)
+                        }}>2</button>
+                        <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                            setResult(0)
+                        }}>C</button>
+                        <button className={'border-2 border-black w-20 h-20 rounded-1xl'}  onClick={() => {
+                            setResult(result + "+")
+                        }}>=</button>
+                        <button className={'border-2 border-black w-20 h-20 rounded-1xl'} onClick={onChange1} onClick={() => {
+                            setResult("=")
+                        }}>+</button>
+                    </div>
+                </div>
+              )
+            }
